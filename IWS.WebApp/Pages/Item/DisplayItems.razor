@@ -1,0 +1,27 @@
+@page "/Display-items"
+
+
+@inject IRetrieveAllItemsUseCase _retrieveAllItemsUseCase
+<h3>Display Items</h3>
+<br />
+<ul>
+    @foreach (var i in _items)
+    {
+        <li>
+            <h4>@i.Name</h4>
+            <em>@i.Description</em>
+            <strong>@i.FormattedPrice()</strong>
+        </li>
+        <br />
+    }
+</ul>
+
+
+@code {
+    private IEnumerable<Item>? _items;
+    protected override async Task OnParametersSetAsync()
+    {
+        _items = await _retrieveAllItemsUseCase.ExecuteAsync();
+    }
+
+}
