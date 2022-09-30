@@ -454,3 +454,6 @@ $RECYCLE.BIN/
 !.vscode/extensions.json
 
 release
+
+# Local Netlify folder
+.netlify
